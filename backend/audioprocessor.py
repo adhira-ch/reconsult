@@ -67,7 +67,7 @@ def process_audio_file(input_file_path):
             full_transcript += future.result() + " "
 
     # Save the combined transcript
-    output_folder = "output"
+    output_folder = "data"
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
     end_time = time.time()
@@ -104,5 +104,5 @@ def process_audio_file(input_file_path):
     # return (output_file_path, insights_file_path)
 
 # Test function
-sample_file = "mock_interview_audio.mp3"
-print(process_audio_file(sample_file))
+#sample_file = "mock_interview_audio.mp3"
+#print(process_audio_file(sample_file))
