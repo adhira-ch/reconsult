@@ -1,6 +1,7 @@
 import imaplib
 import email
 from email.header import decode_header
+import os
 
 def fetch_emails(username, password, sender_email):
     """
@@ -27,7 +28,7 @@ def fetch_emails(username, password, sender_email):
     messages = messages[0].split(b' ')
 
     # Open a file to save the emails
-    with open("emails_from_specific_sender.txt", "w") as file:
+    with open(os.path.join("emails", "email_" + sender_email.split("@")[0] + ".txt"), "w", encoding='utf-8') as file:
         for mail_id in messages:
             # Fetch the email body (RFC822) for the given ID
             status, data = mail.fetch(mail_id, '(RFC822)')
@@ -67,11 +68,14 @@ def fetch_emails(username, password, sender_email):
                     file.write(f"Subject: {subject}\n")
                     file.write(f"From: {from_}\n")
                     file.write(f"Content:\n{body}\n\n")
+            
+            file.write("\n" + "-"*40 + "\n\n")
+
 
     # Close the connection and logout
     mail.close()
     mail.logout()
 
 # Example usage
-fetch_emails('ryanpunamiya@gmail.com', 'Jotaro3105@PoggerMan', 'eliam.medina@gmail.com')
+fetch_emails('ryanpunamiya@gmail.com', 'dkzervgguwekwili', 'eliam.medina@gmail.com')
 
