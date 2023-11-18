@@ -24,8 +24,13 @@ def fetch_emails(username, password, sender_email):
     # Search for specific mails from the sender
     status, messages = mail.search(None, f'FROM "{sender_email}"')
 
+    status, messages2 = mail.search(None, f'TO "{sender_email}"')
+
     # Convert messages to a list of email IDs
     messages = messages[0].split(b' ')
+    messages2 = messages2[0].split(b' ')
+
+    messages = messages + messages2
 
     # Open a file to save the emails
     with open(os.path.join("data", "email_" + sender_email.split("@")[0] + ".txt"), "w", encoding='utf-8') as file:
@@ -77,5 +82,6 @@ def fetch_emails(username, password, sender_email):
     mail.logout()
 
 # Example usage
-fetch_emails('ryanpunamiya@gmail.com', 'dkzervgguwekwili', 'eliam.medina@gmail.com')
+fetch_emails('priyaagarwal.bcg@gmail.com', 'sisxhvvpqevweftz', '22adhira@gmail.com')
+fetch_emails('priyaagarwal.bcg@gmail.com', 'sisxhvvpqevweftz', '28adhirac@gmail.com')
 
