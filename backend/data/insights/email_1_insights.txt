@@ -1,0 +1,14 @@
+Summary: Adhira Choudhury, Senior Director at Pfizer, requests support from the Boston Consulting Group (BCG) in transforming Pfizer's IT infrastructure. Adhira highlights the need for a transition from the current on-site IT system to a cloud-based infrastructure, emphasizing the importance of strategic planning, risk assessment and mitigation, change management, regulatory compliance, and data security. Adhira proposes to set up a meeting to discuss the project in detail and expresses the belief in BCG's expertise to navigate this transformation effectively.
+
+People in Correspondence:
+
+- Adhira Choudhury, Senior Director- Analytics Engineering, Pfizer Inc.
+- Priya Agarwal, Consultant at Boston Consulting Group (BCG)
+
+Actionable items/Next steps:
+
+- Set up a meeting to discuss the project in detail.
+- Develop a comprehensive strategy for the transition from the current on-site systems to a cloud-based infrastructure.
+- Identify potential risks associated with the transition and devise strategies to mitigate them.
+- Ensure smooth adoption of the new system through change management, focusing on training and communication.
+- Ensure regulatory compliance and enhance data security measures in the new infrastructure.

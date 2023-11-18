@@ -1,0 +1,12 @@
+Summary: Adhira Choudhury is requesting a proposal from Boston Consulting Group (BCG) for Pfizer's IT infrastructure transformation project. The proposal should include detailed strategies for cloud migration, risk management framework, and change management strategy.
+
+Correspondence:
+- Adhira Choudhury (sender): 28adhirac@gmail.com
+- Priya (receiver): Not mentioned
+
+Next Steps:
+- BCG should prepare a comprehensive proposal for Pfizer's IT infrastructure transformation project.
+- The proposal should include:
+  - Cloud Migration Plan with timelines, milestones, and resource allocation.
+  - Risk Management Framework focusing on data security and regulatory compliance.
+  - Change Management Strategy outlining training, communication plans, and stakeholder engagement.

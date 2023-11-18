@@ -92,7 +92,7 @@ def process_audio_file(input_file_path):
             ]
         )
         insights = gpt_response.choices[0].message["content"]
-
+        base_name = base_name.replace(".txt", "")
         insights_file_path = os.path.join(output_folder, base_name + "_insights.txt")
         with open(insights_file_path, 'w') as insights_file:
             insights_file.write(insights)

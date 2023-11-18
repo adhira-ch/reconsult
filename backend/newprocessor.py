@@ -77,9 +77,11 @@ def video_to_transcript(input_video_path, file_name):
 def transcript_to_insights(transcript_file_path, file_name):
     with open(transcript_file_path, 'r') as file:
         full_transcript = file.read()
-
-    insight_request = "With the following meeting transcript provide the following information to use as business notes which are specific & quantifiable: A summary of the meeting, people in attendance, key business insights, problems identified, deadlines, and specific information in bullets. Potential actionable insights for managers/consultants/engineers. Transcript below:\n" + full_transcript
-    openai.api_key = 'YOUR_OPENAI_API_KEY'
+    if "meeting" in file_name.lower():
+        insight_request = "With the following meeting transcript provide the following information to use as business notes which are specific & quantifiable: A summary of the meeting, people in attendance, key business insights, problems identified, deadlines, and specific information in bullets. Potential actionable insights for managers/consultants/engineers. Transcript below:\n" + full_transcript
+    else:
+        insight_request = "With the following email transcript provide the following information to use as business notes which are specific & quantifiable: A short summary of the email (message), people in correspondence, actionable items /next steps (if any for managers/consultants/engineers). Transcript below:\n" + full_transcript
+    openai.api_key = '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'
 
     insights = ""
     try:
@@ -95,15 +97,15 @@ def transcript_to_insights(transcript_file_path, file_name):
         insights_folder = "data/insights"
         if not os.path.exists(insights_folder):
             os.makedirs(insights_folder)
-        insights_file_path = os.path.join(insights_folder, f"{file_name}_insights.txt")
+        file_name_new = file_name.replace(".txt","")
+        insights_file_path = os.path.join(insights_folder, f"{file_name_new}_insights.txt")
         with open(insights_file_path, 'w') as insights_file:
             insights_file.write(insights)
         print(f"Insights saved to {insights_file_path}")
     except Exception as e:
         print("Error in generating insights:", e)
-    
-    return insights_file_path
 
 # Example Usage
 # video_transcript_path = video_to_transcript("path_to_video.mp4", "meeting_name")
 # insights_path = transcript_to_insights(video_transcript_path, "meeting_name")
+transcript_to_insights("data/data/email_6.txt", "email_6.txt")
