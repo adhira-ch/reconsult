@@ -58,7 +58,7 @@ def gradio_interface(question, history):
     new_history = f"{history}\n\nYou: {question}\n\nChatbot: {response}" if history else f"You: {question}\n\nChatbot: {response}"
     return new_history
 
-with gr.Blocks(theme=gr.themes.Monochrome()) as demo:
+with gr.Blocks(theme='WeixuanYuan/Base_dark') as demo:    
     chatbot = gr.Chatbot()
     msg = gr.Textbox(placeholder="Type your message here...")
     clear = gr.ClearButton([msg, chatbot])
