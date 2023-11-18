@@ -5,7 +5,7 @@ import gradio as gr
 import sys
 import os
 
-os.environ["OPENAI_API_KEY"] = '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'
+os.environ["OPENAI_API_KEY"] =  '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'
 
 
 def init_index(directory_path):
