@@ -1,6 +1,7 @@
 Subject: Request for Proposal (RFP) for IT Infrastructure Transformation
 Date: November 30, 2023
-From: Adhira Choudhury <28adhirac@gmail.com>
+From: Ryan Reynolds <ryanrey@pfizer.com>
+To: Priya Agarwal <priyaagarwal.bcg@gmail.com>
 Content:
 Dear Priya,
 
@@ -44,6 +45,6 @@ Best regards,
 
 
 
-Thomas Reynolds
+Ryan Reynolds
 
 Senior Vice President, Pfizer Inc.
