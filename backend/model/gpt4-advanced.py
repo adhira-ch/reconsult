@@ -6,6 +6,7 @@ from langchain.chat_models import ChatOpenAI
 import gradio as gr
 from llama_index.query_engine import CitationQueryEngine
 import os
+import time
 
 # Set your OpenAI API key
 os.environ["OPENAI_API_KEY"] = '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'
@@ -57,13 +58,19 @@ def gradio_interface(question, history):
     new_history = f"{history}\n\nYou: {question}\n\nChatbot: {response}" if history else f"You: {question}\n\nChatbot: {response}"
     return new_history
 
-with gr.Blocks() as demo:
-    gr.Markdown("### Chat with Our AI")
-    with gr.Row():
-        text_input = gr.Textbox(placeholder="Type your message here...", lines=2, interactive=True, label="Your Message")
-        submit_button = gr.Button("Send")
-    history = gr.Textbox(label="Conversation History", interactive=False, lines=20, placeholder="Your conversation with the AI will appear here...")
-    submit_button.click(gradio_interface, inputs=[text_input, history], outputs=history)
+with gr.Blocks(theme=gr.themes.Monochrome()) as demo:
+    chatbot = gr.Chatbot()
+    msg = gr.Textbox(placeholder="Type your message here...")
+    clear = gr.ClearButton([msg, chatbot])
+
+    def respond(message, history):
+        bot_message = query_chatbot(message)
+        history.append((message, bot_message))
+        time.sleep(2)
+        return "", history
+    
+    msg.submit(respond, [msg, chatbot], [msg, chatbot])
+
 
 # Launch the Gradio app
 demo.launch()
