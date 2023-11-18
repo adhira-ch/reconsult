@@ -28,7 +28,7 @@ def fetch_emails(username, password, sender_email):
     messages = messages[0].split(b' ')
 
     # Open a file to save the emails
-    with open(os.path.join("emails", "email_" + sender_email.split("@")[0] + ".txt"), "w", encoding='utf-8') as file:
+    with open(os.path.join("data", "email_" + sender_email.split("@")[0] + ".txt"), "w", encoding='utf-8') as file:
         for mail_id in messages:
             # Fetch the email body (RFC822) for the given ID
             status, data = mail.fetch(mail_id, '(RFC822)')
