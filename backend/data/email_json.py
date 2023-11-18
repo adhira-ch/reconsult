@@ -23,10 +23,16 @@ def emails_to_json(username, password, sender_email):
     mail.select("inbox")
 
     # Search for specific mails from the sender
+    # Search for specific mails from the sender
     status, messages = mail.search(None, f'FROM "{sender_email}"')
+
+    status, messages2 = mail.search(None, f'TO "{sender_email}"')
 
     # Convert messages to a list of email IDs
     messages = messages[0].split(b' ')
+    messages2 = messages2[0].split(b' ')
+
+    messages = messages + messages2
 
     emails = []  # List to store email dictionaries
 
@@ -74,4 +80,5 @@ def emails_to_json(username, password, sender_email):
     mail.logout()
 
 ## Example usage
-# emails_to_json('ryanpunamiya@gmail.com', 'dkzervgguwekwili', '')
+emails_to_json('priyaagarwal.bcg@gmail.com', 'sisxhvvpqevweftz', '22adhira@gmail.com')
+emails_to_json('priyaagarwal.bcg@gmail.com', 'sisxhvvpqevweftz', '28adhirac@gmail.com')
