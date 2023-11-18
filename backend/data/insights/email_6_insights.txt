@@ -1,0 +1,12 @@
+Summary: Ryan Reynolds is requesting a proposal from Boston Consulting Group (BCG) for Pfizer's IT infrastructure transformation project. The proposal should include detailed strategies for cloud migration, risk management framework, and change management strategy.
+
+Correspondence:
+- Ryan Reynolds (sender): ryanrey@pfizer.com
+- Priya (receiver): Not mentioned
+
+Next Steps:
+- BCG should prepare a comprehensive proposal for Pfizer's IT infrastructure transformation project.
+- The proposal should include:
+  - Cloud Migration Plan with timelines, milestones, and resource allocation.
+  - Risk Management Framework focusing on data security and regulatory compliance.
+  - Change Management Strategy outlining training, communication plans, and stakeholder engagement.

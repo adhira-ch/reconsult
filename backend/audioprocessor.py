@@ -77,31 +77,30 @@ def process_audio_file(input_file_path):
 
     with open(output_file_path, 'w') as file:
         file.write(full_transcript)
-    print(f"Transcript saved to {output_file_path}")
-    return "DONE in "+str(total_time)
-    # insight_request = "With the following meeting transcript provide the following information to use as business notes which are specific & quantifiable (similar to automated meeting minutes): A summary of the meeting (focused on prospects, business, etc), People in attendance (record names of people in attendance & conversations do not include names like Speaker 1, etc look for names in conversation of transcript), Key business insights , problems identified, deadlines, & specific information in bullets (go into detail as you can), Potential actionable insights for managers/consultants/engineers (based on the information). Transcript below"
-    # transcript_with_prompt = insight_request + full_transcript
-    # openai.api_key = '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'
+    print(f"Transcript saved to {output_file_path} in {str(total_time)}")
+    insight_request = "With the following meeting transcript provide the following information to use as business notes which are specific & quantifiable (similar to automated meeting minutes): A summary of the meeting (focused on prospects, business, etc), People in attendance (record names of people in attendance & conversations do not include names like Speaker 1, etc look for names in conversation of transcript), Key business insights , problems identified, deadlines, & specific information in bullets (go into detail as you can), Potential actionable insights for managers/consultants/engineers (based on the information). Transcript below"
+    transcript_with_prompt = insight_request + full_transcript
+    openai.api_key = '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'
 
-    # insights = ""
-    # try:
-    #     gpt_response = openai.ChatCompletion.create(
-    #         model="gpt-3.5-turbo",  # Replace with appropriate GPT-4 model
-    #         messages=[
-    #             {"role": "system", "content": "You are a helpful assistant."},
-    #             {"role": "user", "content": transcript_with_prompt}
-    #         ]
-    #     )
-    #     insights = gpt_response.choices[0].message["content"]
-
-    #     insights_file_path = os.path.join(output_folder, base_name + "_insights.txt")
-    #     with open(insights_file_path, 'w') as insights_file:
-    #         insights_file.write(insights)
-    #     print(f"Insights saved to {insights_file_path}")
-    # except Exception as e:
-    #     print("Error in generating insights:", e)
+    insights = ""
+    try:
+        gpt_response = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",  # Replace with appropriate GPT-4 model
+            messages=[
+                {"role": "system", "content": "You are a helpful assistant."},
+                {"role": "user", "content": transcript_with_prompt}
+            ]
+        )
+        insights = gpt_response.choices[0].message["content"]
+        base_name = base_name.replace(".txt", "")
+        insights_file_path = os.path.join(output_folder, base_name + "_insights.txt")
+        with open(insights_file_path, 'w') as insights_file:
+            insights_file.write(insights)
+        print(f"Insights saved to {insights_file_path}")
+    except Exception as e:
+        print("Error in generating insights:", e)
     
-    # return (output_file_path, insights_file_path)
+    return (output_file_path, insights_file_path)
 
 # Test function
 #sample_file = "mock_interview_audio.mp3"
