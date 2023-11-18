@@ -73,7 +73,7 @@ def process_audio_file(input_file_path):
     end_time = time.time()
     total_time = end_time - start_time
     base_name = os.path.splitext(os.path.basename(input_file_path))[0]
-    output_file_path = os.path.join(output_folder, base_name + "_transcript.txt")
+    output_file_path = os.path.join(output_folder, "meeting_" + base_name + "_transcript.txt")
 
     with open(output_file_path, 'w') as file:
         file.write(full_transcript)
