@@ -1,0 +1,37 @@
+Subject: Internal BCG Meeting Transcript: Strategy for Pfizer's RFP
+Date: December 3, 2023
+Location: BCG Office, New York
+Attendees:
+
+Priya Agarwal
+Kiara Sanders
+Colin Scott
+Priya Agarwal: Let’s align on our approach for Pfizer’s Request for Proposal. We need a detailed plan that addresses all the points discussed during our meeting at Pfizer's headquarters.
+
+Kiara Sanders: First, let's recap their key requirements: a scalable, secure cloud-based IT infrastructure, with a focus on minimal downtime and compliance with healthcare regulations. They currently manage 500TB of data across 120 servers, expecting a 15% annual data growth.
+
+Colin Scott: For the financials, we estimated a ballpark figure of $2.5 million annually for cloud services. This needs to be broken down in our proposal, outlining specifics like storage, compute, and network costs.
+
+Priya Agarwal: Agreed. Let’s also propose a phased migration plan. Starting with the 60% of applications that are cloud-ready, followed by the complex legacy systems. We should provide a detailed timeline for each phase.
+
+Kiara Sanders: On the security front, we need to emphasize our strategy for ensuring compliance with HIPAA and other relevant regulations. This includes encryption, access controls, and continuous security audits.
+
+Colin Scott: Regarding the downtime concern, we should suggest using migration tools for live data transfer and propose a parallel run strategy. This will ensure business continuity during the transition.
+
+Priya Agarwal: Good points. Now, let’s talk about change management. We need a comprehensive plan for training Pfizer’s staff, ensuring they are comfortable with the new cloud infrastructure.
+
+Kiara Sanders: We should also include risk management in our proposal. A detailed assessment of potential risks and our mitigation strategies is crucial, especially given Pfizer's concerns about data security and operational disruptions.
+
+Colin Scott: Let's not forget about scalability. Pfizer’s data growth rate is significant, and our solution should not just address current needs but also be future-proof.
+
+Priya Agarwal: Exactly, Colin. We need to demonstrate how our proposed cloud solution can scale in line with their data growth and evolving business needs.
+
+Kiara Sanders: For the proposal, we should also include case studies or references from similar projects we've handled. This will provide Pfizer with confidence in our expertise and experience.
+
+Priya Agarwal: Agreed. Let’s divide the work: Colin, you handle the financial breakdown and risk management; Kiara, take charge of the migration strategy and security plan. I’ll oversee the overall structure of the proposal and the change management strategy.
+
+Colin Scott: Sounds like a plan. We’ll need to collaborate closely to ensure all sections align and present a cohesive strategy.
+
+Priya Agarwal: Let's aim to have a draft ready for internal review by next week. We need to ensure our proposal is comprehensive, detailed, and tailored to Pfizer's specific needs and concerns.
+
+Kiara Sanders: Understood. We’ll regroup early next week to review our progress.
