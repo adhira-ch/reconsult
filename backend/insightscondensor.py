@@ -1,6 +1,7 @@
 import os
 import json
 import re
+import random
 def read_file_content(file_path):
     """ Read and return the content of a file. """
     with open(file_path, 'r', encoding='utf-8') as file:
@@ -25,18 +26,19 @@ def create_json_from_data_and_insights(data_directory, insights_directory):
     # Mapping of data transcripts with their file names (without the .txt extension)
     data_transcripts = {file_name.replace(".txt", ""): read_file_content(os.path.join(data_directory, file_name))
                         for file_name in os.listdir(data_directory) if file_name.endswith(".txt")}
-
+    colors = ["#E5B70D", "#FE504F","#00C7B7"]
     for file_name in os.listdir(insights_directory):
         if file_name.endswith("_insights.txt"):
             insight_type = "Meeting" if "meeting" in file_name.lower() else "Email"
             insight_id = file_name.replace("_insights.txt", "")
-
+            assignment = random.choice(colors)
             summary = read_file_content(os.path.join(insights_directory, file_name))
             full_text = data_transcripts.get(insight_id, "Full text not found.")
             if insight_type == "Email":
                 subject, date, sender, recipient = extract_email_details(full_text)
                 combined_list.append({
                     "id": count,
+                    "status": assignment,
                     "type": insight_type,
                     "subject": subject,
                     "date": date,
@@ -49,6 +51,7 @@ def create_json_from_data_and_insights(data_directory, insights_directory):
                 subject, date, _, _ = extract_email_details(full_text)
                 combined_list.append({
                     "id": count,
+                    "status": assignment,
                     "type": insight_type,
                     "subject": subject,
                     "date": date,
