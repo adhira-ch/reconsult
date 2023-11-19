@@ -24,21 +24,22 @@ const pageTransition = {
 };
 
 const emailToNameMapping = [
-    { email: 'example1@email.com', name: 'John' },
-    { email: 'example2@email.com', name: 'Jane' },
-    { email: 'example3@email.com', name: 'Joe' },
+    { email: 'priyaagarwal.bcg@gmail.com', name: 'Priya' },
+    { email: '22adhira@gmail.com', name: 'Adhira' },
+    { email: 'ryanrey@pfizer.com', name: 'Ryan' },
     { email: 'example4@email.com', name: 'Jack' },
     // ... more entries ...
   ];
 
 
-  function ProjectButton({ date, full_text, recipient, sender, subject, summary, type, handleProjectSubmit, status, label, setModalOpen, setModalCreateOpen, video_path, username, sector }) {
-    return (
+  function ProjectButton({ date, full_text, recipient, sender, subject, summary, type, handleProjectSubmit, status, label, setModalOpen, setModalCreateOpen, video_path, username, sector, activeTab}) {
+    return (<>
+      {((sender && activeTab && sender.includes(activeTab)) || (recipient && activeTab && recipient.includes(activeTab)) || type === 'Meeting') &&
       <div className='flex flex-col items-center w-full h-fit'>
         <div className="w-full h-fit">
           <button 
             className='rounded-md hover:ring-2 hover:ring-black/[0.5] hover:shadow-lg hover:ring-2 transition-shadow duration-300 shadow-lg h-fit w-full flex flex-col bg-four'
-            onClick={() => handleProjectSubmit({date, full_text, recipient, sender, subject, summary, type})}
+            onClick={() => handleProjectSubmit({date, full_text, recipient, sender, subject, summary, type, status})}
           >
             <div className='flex flex-row w-full'>
               <span className='h-10 w-10 bg-one flex flex-end rounded-md ring-1 ring-black' style={{backgroundColor: status}}></span>
@@ -53,11 +54,12 @@ const emailToNameMapping = [
         <div className='text-center text-xl py-1.5'>
         </div>
       </div>
+      }</>
     );
   }
   
   
-function ProjectsList({projects, handleProjectSubmit}) {
+function ProjectsList({projects, handleProjectSubmit, activeTab}) {
     return (
       <div className="flex flex-col items-center w-full justify-center p-5">
         {projects.map((project, index) => (
@@ -73,6 +75,7 @@ function ProjectsList({projects, handleProjectSubmit}) {
             type={project.type}
             handleProjectSubmit={handleProjectSubmit}
             status={project.status}
+            activeTab={activeTab}
           />
         ))}
       </div>
@@ -84,7 +87,7 @@ function ProjectsList({projects, handleProjectSubmit}) {
 
 
 
-function LeftPanel({ companyName, email_addresses, title, status}) {
+function LeftPanel({ companyName, email_addresses, title, status, handleProjectSubmit}) {
     const emailTabs = email_addresses.split(', ');
     const [activeTab, setActiveTab] = useState(emailTabs[0]);
   
@@ -107,11 +110,6 @@ function LeftPanel({ companyName, email_addresses, title, status}) {
 
     fetchData();
   }, []);
-
-  const handleProjectSubmit = ({date, full_text, recipient, sender, subject, summary, type}) => {
-    alert('here');
-
-  };
 
     const getNameByEmail = (email) => {
         const entry = emailToNameMapping.find(entry => entry.email === email);
@@ -152,7 +150,7 @@ function LeftPanel({ companyName, email_addresses, title, status}) {
           <span className='h-12 w-fit bg-[#4F46E5] p-2 justify-center items-center flex rounded-md'>Mails: {activeTab}</span>
         </div>
         <div className="overflow-auto" style={{ maxHeight: '50%' }}>
-          <ProjectsList projects={emails} handleProjectSubmit={handleProjectSubmit} />
+          <ProjectsList projects={emails} handleProjectSubmit={handleProjectSubmit} activeTab={activeTab}/>
         </div>
       </div>
     </div>
@@ -165,7 +163,7 @@ function LeftPanel({ companyName, email_addresses, title, status}) {
           <span className='h-12 w-fit bg-[#4F46E5] p-2 justify-center items-center flex rounded-md'>Meetings: {activeTab}</span>
         </div>
         <div className="overflow-auto" style={{ maxHeight: '50%' }}>
-          <ProjectsList projects={meetings} handleProjectSubmit={handleProjectSubmit} />
+          <ProjectsList projects={meetings} handleProjectSubmit={handleProjectSubmit} activeTab={activeTab}/>
         </div>
       </div>
     </div>
@@ -180,7 +178,78 @@ function LeftPanel({ companyName, email_addresses, title, status}) {
       </div>
     );
   }
-  
+
+  function Modal({ date, full_text, recipient, sender, subject, summary, type, status, label, closeModal, onClose}) {
+    const modalRef = useRef();
+    const [isFullTextOpen, setIsFullTextOpen] = useState(false);
+    useEffect(() => {
+        function handleClickOutside(event) {
+            if (modalRef.current && !modalRef.current.contains(event.target)) {
+                onClose();
+            }
+        }
+
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [onClose]);
+
+    return (
+        <div className="modal-overlay fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+    <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+        {/* Overlay Background */}
+        <div className="fixed inset-0 bg-black bg-opacity-[0.4] transition-opacity duration-1000" aria-hidden="true"></div>
+
+        {/* Modal Content */}
+        <div className="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            {/* Spacer Element */}
+            <span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+            
+            {/* Modal Box */}
+            <div ref={modalRef} className="inline-block align-bottom bg-transparent rounded-3xl text-left overflow-hidden transform transition-transform duration-1000 sm:align-middle sm:max-w-2xl sm:w-[40vw] justify-center items-center">
+                {true && (
+                    <>
+                        {/* Project List Section */}
+                        <div className="bg-one px-4 py-5 shadow-none text-base">
+      {/* Subject */}
+      <div className="text-center text-xl text-white mb-4">
+        {subject}
+      </div>
+
+      {/* Email Metadata */}
+      <div className="text-white mb-4">
+        <div><b>From:</b> <span className='p-1 bg-two rounded-md'>{sender}</span></div> <br />
+        <div><b>To:</b> <span className='p-1 bg-two rounded-md'>{recipient}</span></div> <br />
+        <div><b>Summary:</b> {summary}</div>
+      </div>
+
+      {/* Full Text Dropdown */}
+      <div>
+        <button 
+          className="text-white font-semibold py-2 w-full text-left"
+          onClick={() => setIsFullTextOpen(!isFullTextOpen)}
+        >
+          {isFullTextOpen ? 'Hide Full Text' : 'Show Full Text'}
+        </button>
+
+        {isFullTextOpen && (
+          <div className="overflow-auto text-white max-h-60 p-2 border border-white rounded-md">
+            {full_text}
+          </div>
+        )}
+      </div>
+    </div>
+                    </>
+                )}
+            </div>
+        </div>
+    </div>
+</div>
+    );
+}
+
+
 function Main_App() {
     const location = useLocation();
     const [receivedId, setReceivedId] = useState(location.state.id);
@@ -190,6 +259,37 @@ function Main_App() {
     const [stage, setStage] = useState(location.state.stage);
     const [cmp, setCmp] = useState(location.state.cmp);
     const [status, setStatus] = useState(location.state.cmp);
+
+    const [date, setDate] = useState('');
+    const [full_text, setText] = useState('');
+    const [recipient, setRecipient] = useState('');
+    const [sender, setSender] = useState('');
+    const [subject, setSubject] = useState('');
+    const [summary, setSummary] = useState('');
+    const [type, setType] = useState('');
+    const [status_obj, setStatus_obj] = useState('');
+
+    const handleProjectSubmit = ({date, full_text, recipient, sender, subject, summary, type, status}) => {
+      setDate(date);
+      setText(full_text);
+      setRecipient(recipient);
+      setSender(sender);
+      setSubject(subject);
+      setSummary(summary);
+      setType(type);
+      setStatus_obj(status);
+      setModalOpen(true);
+    };
+
+    const [isModalOpen, setModalOpen] = useState(false);
+    const closeModal = () => {
+      setModalOpen(false);
+    };
+
+
+
+
+
     return (
         <motion.div
             initial="initial"
@@ -198,16 +298,17 @@ function Main_App() {
             variants={pageVariants}
             transition={pageTransition}
         >
+
             <div className="h-screen flex flex-col px-4 py-4"> 
                 <div className="w-4/5 mx-auto my-4">
                 <NavbarDefault />
             </div>
             <div className='flex flex-col items-center justify-center p-4'>
             {/* Main content */}
-            <div className="flex-grow flex flex-row bg-four/[0.6] rounded-3xl w-full mx-auto justify-center items-center p-4 h-[78vh]">
+            <div className="flex-grow flex flex-row bg-four/[0.6] rounded-3xl w-full mx-auto justify-center items-center p-4 h-[75vh]">
                 {/* Left Section */}
                 <div className="flex-grow w-1/3 h-full rounded-md"> {/* Change bg-blue-500 to your desired color */}
-                    <LeftPanel companyName={cmp} email_addresses={emailList} title={title}/>
+                    <LeftPanel companyName={cmp} email_addresses={emailList} title={title} handleProjectSubmit={handleProjectSubmit}/>
                 </div>
                 
                 <div className="flex-grow w-1/3 bg-four h-full rounded-md"> {/* Change bg-blue-500 to your desired color */}
@@ -220,7 +321,18 @@ function Main_App() {
                     <iframe className='w-full h-full rounded-md' src="http://127.0.0.1:7860"></iframe>
                 </div>
             </div>
-
+            <div className='text-center text-xl py-3'>
+                {isModalOpen && <Modal onClose={closeModal} 
+                date = {date}
+                full_text={full_text}
+                recipient={recipient}
+                sender={sender}
+                subject={subject}
+                summary={summary}
+                type={type}
+                status={status_obj}
+                />}
+            </div>
             </div>
             </div>
         </motion.div>

@@ -20,7 +20,7 @@ function Modal({ onClose, onSubmit, fileName, text, setText, setFileName, setFil
     const navigate = useNavigate();
 
     const handleProjectSubmit = ({id, status, name}) => {
-        navigate('/project_page', { state: {emailList: '', desc: '', title: name, id: id, cmp: companyName, stage: '', status: status} });
+        navigate('/project_page', { state: {emailList: 'priyaagarwal.bcg@gmail.com, 22adhira@gmail.com, ryanrey@pfizer.com', desc: '', title: name, id: id, cmp: companyName, stage: '', status: status} });
     }
 
     useEffect(() => {

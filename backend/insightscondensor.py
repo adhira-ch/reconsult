@@ -45,7 +45,7 @@ def create_json_from_data_and_insights(data_directory, insights_directory):
                     "sender": sender,
                     "recipient": recipient,
                     "summary": summary,
-                    "full text": full_text
+                    "full_text": full_text
                 })
             else:  # For meetings, sender and recipient are not applicable
                 subject, date, _, _ = extract_email_details(full_text)
@@ -56,7 +56,7 @@ def create_json_from_data_and_insights(data_directory, insights_directory):
                     "subject": subject,
                     "date": date,
                     "summary": summary,
-                    "full text": full_text
+                    "full_text": full_text
                 })
         count = count + 1
 
