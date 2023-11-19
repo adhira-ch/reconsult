@@ -2,6 +2,34 @@ import os
 import json
 import re
 import random
+from transformers import pipeline
+import numpy as np
+
+DATA_DIRECTORY = "../data/data"
+
+sentiment_analyzer = pipeline("sentiment-analysis")
+
+def get_document_sentiment(document_text):
+    sentiment_results = sentiment_analyzer(document_text)
+    # Assuming the result includes a 'score' for the sentiment
+    return np.mean([res['score'] for res in sentiment_results if res['label'] == 'POSITIVE']) - \
+           np.mean([res['score'] for res in sentiment_results if res['label'] == 'NEGATIVE'])
+
+# Function to compute average sentiment across all documents
+def compute_average_sentiment(data_directory):
+    file_paths = [f for f in Path(data_directory).glob("*.txt")]
+    sentiment_scores = []
+    for file_path in file_paths:
+        with open(file_path, 'r') as file:
+            document_text = file.read()
+            sentiment_score = get_document_sentiment(document_text)
+            sentiment_scores.append(sentiment_score)
+
+    return np.mean(sentiment_scores) if sentiment_scores else 0
+
+average_sentiment = compute_average_sentiment(DATA_DIRECTORY)
+
+
 def read_file_content(file_path):
     """ Read and return the content of a file. """
     with open(file_path, 'r', encoding='utf-8') as file:
@@ -22,6 +50,7 @@ def extract_email_details(full_text):
 
 def create_json_from_data_and_insights(data_directory, insights_directory):
     combined_list = []
+    combined_list.append({"sentiment" : average_sentiment})
     count = 1
     # Mapping of data transcripts with their file names (without the .txt extension)
     data_transcripts = {file_name.replace(".txt", ""): read_file_content(os.path.join(data_directory, file_name))

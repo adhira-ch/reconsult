@@ -18,6 +18,30 @@ DATA_DIRECTORY = "../data/data"
 llm_predictor_gpt4 = LLMPredictor(llm=ChatOpenAI(temperature=0, model_name="gpt-4"))
 service_context = ServiceContext.from_defaults(llm_predictor=llm_predictor_gpt4, chunk_size_limit=1024)
 
+sentiment_analyzer = pipeline("sentiment-analysis")
+
+def get_document_sentiment(document_text):
+    sentiment_results = sentiment_analyzer(document_text)
+    # Assuming the result includes a 'score' for the sentiment
+    return np.mean([res['score'] for res in sentiment_results if res['label'] == 'POSITIVE']) - \
+           np.mean([res['score'] for res in sentiment_results if res['label'] == 'NEGATIVE'])
+
+# Function to compute average sentiment across all documents
+def compute_average_sentiment(data_directory):
+    file_paths = [f for f in Path(data_directory).glob("*.txt")]
+    sentiment_scores = []
+    for file_path in file_paths:
+        with open(file_path, 'r') as file:
+            document_text = file.read()
+            sentiment_score = get_document_sentiment(document_text)
+            sentiment_scores.append(sentiment_score)
+
+    return np.mean(sentiment_scores) if sentiment_scores else 0
+
+average_sentiment = compute_average_sentiment(DATA_DIRECTORY)
+
+
+
 # Function to build vector index for all files
 def build_vector_index(index_name):
     file_paths = [f for f in Path(DATA_DIRECTORY).glob("*.txt")]
