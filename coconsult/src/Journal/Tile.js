@@ -19,8 +19,8 @@ function Modal({ onClose, onSubmit, fileName, text, setText, setFileName, setFil
     const [receivedId, setReceivedId] = useState(null);
     const navigate = useNavigate();
 
-    const handleProjectSubmit = ({id, status}) => {
-        navigate('/project_page', { state: {emailList: '', desc: '', title: '', id: id, cmp: companyName, stage: '', status: status} });
+    const handleProjectSubmit = ({id, status, name}) => {
+        navigate('/project_page', { state: {emailList: '', desc: '', title: name, id: id, cmp: companyName, stage: '', status: status} });
     }
 
     useEffect(() => {
@@ -260,7 +260,7 @@ function Modal_Create({ onClose, onSubmit, fileName, text, setText, setFileName,
 
 function ProjectButton({ name, description, status, handleProjectSubmit, id}) {
     return (
-      <button className="w-full mb-4 text-black hover:bg-white/[0.7] rounded-md flex flex-row h-fit bg-white" onClick={() => {handleProjectSubmit(id, status)}}>
+      <button className="w-full mb-4 text-black hover:bg-white/[0.7] rounded-md flex flex-row h-fit bg-white" onClick={() => {handleProjectSubmit({id, status, name})}}>
         <span className='w-5/6 flex px-4 py-2 flex-col'>
           {name}
           <hr />
