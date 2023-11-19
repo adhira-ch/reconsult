@@ -7,14 +7,15 @@ def read_file_content(file_path):
     with open(file_path, 'r', encoding='utf-8') as file:
         return file.read()
 
-def extract_email_details(full_text):
-    """ Extract subject, date, sender, and recipient from the full text. """
-    subject_match = re.search(r"Subject: (.*)", full_text)
-    date_match = re.search(r"Date: (.*)", full_text)
-    sender_match = re.search(r"From: (.*)", full_text)
-    recipient_match = re.search(r"To: (.*)", full_text)
-
-    subject = subject_match.group(1) if subject_match else "Subject not found"
+def extract_email_details(html_text):
+    """ Extract subject, date, sender, and recipient from the HTML text. """
+    # Using regular expressions to match the HTML patterns
+    subject_match = re.search(r"<h3>Subject:</h3><p>(.*?)</p>", html_text)
+    date_match = re.search(r"<h3>Date:</h3><p>(.*?)</p>", html_text)
+    sender_match = re.search(r"<h3>From:</h3><p>(.*?)</p>", html_text)
+    recipient_match = re.search(r"<h3>To:</h3><p>(.*?)</p>", html_text)
+    # Extracting the text from the matched patterns
+    subject = subject_match.group(1) if subject_match else "Internal BCG Meeting Transcript: Strategy for Pfizer's RFP"
     date = date_match.group(1) if date_match else "Date not found"
     sender = sender_match.group(1) if sender_match else "Sender not found"
     recipient = recipient_match.group(1) if recipient_match else "Recipient not found"
@@ -63,7 +64,7 @@ def create_json_from_data_and_insights(data_directory, insights_directory):
     return json.dumps(combined_list, indent=4)
 
 # Example usage
-# data_directory = 'data/raw'
-# insights_directory = 'data/insights'
-# json_output = create_json_from_data_and_insights(data_directory, insights_directory)
-# print(json_output)
+data_directory = 'data/raw'
+insights_directory = 'data/insights'
+json_output = create_json_from_data_and_insights(data_directory, insights_directory)
+print(json_output)

@@ -20,7 +20,7 @@ function Modal({ onClose, onSubmit, fileName, text, setText, setFileName, setFil
     const navigate = useNavigate();
 
     const handleProjectSubmit = ({id, status, name}) => {
-        navigate('/project_page', { state: {emailList: 'priyaagarwal.bcg@gmail.com, 22adhira@gmail.com, ryanrey@pfizer.com', desc: '', title: name, id: id, cmp: companyName, stage: '', status: status} });
+        navigate('/project_page', { state: {emailList: 'priyaagarwal.bcg@gmail.com, 22adhira@gmail.com, ryanrey@pfizer.com', desc: '', title: name, id: id, cmp: companyName, stage: 'Initial Contact', status: status} });
     }
 
     useEffect(() => {
@@ -261,9 +261,9 @@ function Modal_Create({ onClose, onSubmit, fileName, text, setText, setFileName,
 function ProjectButton({ name, description, status, handleProjectSubmit, id}) {
     return (
       <button className="w-full mb-4 text-black hover:bg-white/[0.7] rounded-md flex flex-row h-fit bg-white" onClick={() => {handleProjectSubmit({id, status, name})}}>
-        <span className='w-5/6 flex px-4 py-2 flex-col'>
+        <span className='w-5/6 flex px-4 py-2 flex-col justify-center'>
           {name}
-          <hr />
+          <hr className='w-1/2 self-center'/>
           <span className='text-sm'>{description}</span>
         </span>
         <span className='ring-one/[0.5] flex w-1/6 h-full rounded-md ring-4' style={{backgroundColor: status}}></span>

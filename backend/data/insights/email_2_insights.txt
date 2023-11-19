@@ -1,17 +1,1 @@
-Summary of the email:
-
-Adhira Choudhury, Senior Director- Analytics Engineering at Pfizer, reached out to Priya Agarwal, Senior Partner- Global Leader, Tech and Digital Advantage at Boston Consulting Group (BCG), requesting support and guidance for Pfizer's IT infrastructure transformation. Adhira explained the need to transition to a cloud-based infrastructure and highlighted the importance of strategic planning, risk assessment and mitigation, change management, and regulatory compliance and data security in this transformation.
-
-Priya Agarwal responded positively, expressing BCG's commitment to partnering with Pfizer. She proposed an initial meeting to gain a comprehensive understanding of Pfizer's specific needs and the nuances of their IT ecosystem. Priya outlined the various aspects that would be discussed during this meeting, including the current state assessment, vision and objectives, stakeholder analysis, risk and compliance landscape, and change readiness. She suggested scheduling the meeting in-person at Pfizer's headquarters in New York on either Wednesday, November 29th, or Thursday, November 30th, alternatively offering virtual meeting options on November 27th or 28th.
-
-People in correspondence:
-
-- Adhira Choudhury, Senior Director- Analytics Engineering, Pfizer Inc.
-- Priya Agarwal, Senior Partner- Global Leader, Tech and Digital Advantage, Boston Consulting Group
-
-Actionable items/next steps:
-
-- Schedule an in-person meeting to discuss Pfizer's IT infrastructure transformation needs.
-- Confirm the date and time for the meeting, either Wednesday, November 29th, or Thursday, November 30th.
-- Prepare for the meeting by gaining a comprehensive view of Pfizer's specific needs and the nuances of their IT ecosystem.
-- Discuss the current state assessment, vision and objectives, stakeholder analysis, risk and compliance landscape, and change readiness during the meeting.
+<div> <h2>Summary: RE: Pfizer's IT Infrastructure Transformation</h2> <p>People in Correspondence: Adhira Choudhury, Priya Agarwal</p> <p> Adhira contacted Priya seeking assistance for Pfizer's IT infrastructure transformation, emphasizing the shift to a cloud-based setup and the importance of strategic planning, risk management, and compliance. Priya responded positively, proposing an initial meeting to delve into Pfizer's specific requirements, covering areas like current assessment, vision, stakeholders, risk, and change management, with options for in-person or virtual meetings.</p> <h3>Actionable items:</h3> <ol> <li>Schedule an in-person meeting to discuss Pfizer's IT infrastructure transformation needs.</li> <li>Confirm the date and time for the meeting, either Wednesday, November 29th, or Thursday, November 30th.</li> <li>Prepare for the meeting by gaining a comprehensive view of Pfizer's specific needs and the nuances of their IT ecosystem.</li> <li>Discuss the current state assessment, vision and objectives, stakeholder analysis, risk and compliance landscape, and change readiness during the meeting.</li> </ol> </div>

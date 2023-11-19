@@ -1,8 +1,1 @@
-- Summary: The email is a response from Adhira Choudhury of Pfizer Inc. to Priya Agarwal of Boston Consulting Group (BCG). Adhira thanks Priya for the workshop insights and attached document summarizing their recent IT infrastructure workshop. Adhira also adds Ryan Reynolds, Senior Vice President, to the thread and designates him as the main point of contact moving forward.
-- People in Correspondence: 
-  - Adhira Choudhury - Senior Director- Analytics Engineering, Pfizer Inc.
-  - Priya Agarwal - Manager, Boston Consulting Group
-  - Ryan Reynolds - Senior Vice President, Pfizer Inc.
-- Actionable items/Next Steps:
-  - Share the summarized slide from the Client Exploration Workshop with the Pfizer team
-  - Ryan Reynolds to take over as the main point of contact moving forward.
+<div> <h2>Summary: Email Response from Adhira Choudhury Post Workshop</h2> <p>People in Correspondence: Adhira Choudhury, Priya Agarwal, Ryan Reynolds</p> <p>The email is a response from Adhira to Priya thanking BCG for the workshop insights and the attached document summarizing the meeting. Adhira also adds Ryan Reynolds to the thread and designates him as the main point of contact moving forward.</p> <h3>Actionable items:</h3> <ol> <li>Share the summarized slide from the Client Exploration Workshop with the Pfizer team.</li> <li>Ryan Reynolds to take over as the main point of contact moving forward.</li> </ol> </div>
