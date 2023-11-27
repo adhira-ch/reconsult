@@ -1,12 +1,1 @@
-Summary: Adhira Choudhury, representing Pfizer Inc., requests a comprehensive proposal from Boston Consulting Group (BCG) for an IT infrastructure transformation project. The specific areas of interest are cloud migration plan, risk management framework (data security and regulatory compliance), and change management strategy (training, communication plans, and stakeholder engagement).
-
-People in Correspondence:
-- Adhira Choudhury (28adhirac@gmail.com) representing Pfizer Inc.
-- Priya (No specific contact information provided) representing Boston Consulting Group.
-- Ryan Reynolds, Senior Vice President of Pfizer Inc.
-
-Actionable Items / Next Steps:
-- Boston Consulting Group to prepare a comprehensive proposal for Pfizer's IT infrastructure transformation project.
-- Proposal to include detailed strategies for cloud migration plan, risk management framework, and change management strategy.
-- The proposal should address timelines, milestones, resource allocation, training, communication plans, and stakeholder engagement.
-- Submit the proposal to Pfizer Inc. for evaluation and consideration.
+<div><h2>Summary: Request for IT Infrastructure Transformation Proposal</h2><p>People in Correspondence: Adhira Choudhury, Priya Agarwal, Ryan Reynolds </p><p>Adhira requests a comprehensive proposal from Boston Consulting Group (BCG) for an IT infrastructure transformation project. The specific areas of interest are the cloud migration plan, risk management framework (data security and regulatory compliance), and change management strategy (training, communication plans, and stakeholder engagement).</p><h3>Actionable Items:</h3><ol><li>Prepare a comprehensive proposal for Pfizer's IT infrastructure transformation project (cloud migration plan, risk management framework, and change management strategy) => address timelines, milestones, resource allocation, training, communication plans, and stakeholder engagement</li><li>Submit the proposal to Pfizer Inc. for evaluation and consideration.</li></ol></div>

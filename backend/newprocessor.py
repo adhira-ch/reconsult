@@ -55,7 +55,7 @@ def audio_to_transcript(input_file_path, file_name):
         for future in futures:
             full_transcript += future.result() + " "
 
-    output_folder = "data/data"
+    output_folder = "data/raw"
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
     output_file_path = os.path.join(output_folder, f"{file_name}.txt")
@@ -108,4 +108,4 @@ def transcript_to_insights(transcript_file_path, file_name):
 # Example Usage
 # video_transcript_path = video_to_transcript("path_to_video.mp4", "meeting_name")
 # insights_path = transcript_to_insights(video_transcript_path, "meeting_name")
-transcript_to_insights("data/data/email_6.txt", "email_6.txt")
+transcript_to_insights("data/raw/email_6.txt", "email_6.txt")

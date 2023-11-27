@@ -9,7 +9,7 @@ import os
 import time
 
 # Set your OpenAI API key
-os.environ["OPENAI_API_KEY"] = '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'
+os.environ["OPENAI_API_KEY"] = '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'
 
 # Constants
 DATA_DIRECTORY = "../data/data"
@@ -57,7 +57,7 @@ def gradio_interface(question, history):
     # Update the conversation history
     new_history = f"{history}\n\nYou: {question}\n\nChatbot: {response}" if history else f"You: {question}\n\nChatbot: {response}"
     return new_history
-
+  
 with gr.Blocks(theme='WeixuanYuan/Base_dark') as demo:
     chatbot = gr.Chatbot()
     msg = gr.Textbox(placeholder="Type your message here...")
