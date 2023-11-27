@@ -9,7 +9,7 @@ import os
 import time
 
 # Set your OpenAI API key
-os.environ["OPENAI_API_KEY"] = 'YOUR KEY HERE'
+os.environ["OPENAI_API_KEY"] = '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'
 
 # Constants
 DATA_DIRECTORY = "../data/data"
